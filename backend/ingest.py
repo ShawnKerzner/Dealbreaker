@@ -4,6 +4,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 import chromadb
 from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
 from config import EMBEDDING_MODEL, CHROMA_PATH, COLLECTION_NAME
+import html
 
 HEADERS = [("#", "h1"), ("##", "h2"), ("###", "h3")]
 splitter = MarkdownHeaderTextSplitter(
@@ -44,6 +45,7 @@ def fetch_urls(url_list):
 
 
 def clean_text(text):
+    text = html.unescape(text)
     lines = text.split("\n")
     kept = []
 
@@ -111,5 +113,7 @@ def store_chunks(chunks):
 if __name__ == "__main__":
     pages = fetch_urls(URLS)
     chunks = chunk_pages(pages)
+    print("chunks still containing &amp;:", sum(
+        1 for c in chunks if "&amp;" in c["text"] or "&amp;" in c["section"]))
     count = store_chunks(chunks)
     print("stored:", count)

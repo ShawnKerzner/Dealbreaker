@@ -31,6 +31,8 @@ def search(question, k=5):
 
 
 if __name__ == "__main__":
-    hits = search("Are you ISO 27001 certified?")
-    for hit in hits:
-        print(round(hit["distance"], 3), hit["section"])
+    hits = search("Are you SOC 2 certified? Can we see the report?", k=10)
+    for i, hit in enumerate(hits):
+        print(i, hits[i]["section"])
+        print(hits[i]["text"])
+        print("-" * 60)
