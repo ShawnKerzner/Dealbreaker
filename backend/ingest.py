@@ -5,6 +5,8 @@ import chromadb
 from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
 from config import EMBEDDING_MODEL, CHROMA_PATH, COLLECTION_NAME
 import html
+import os
+
 
 HEADERS = [("#", "h1"), ("##", "h2"), ("###", "h3")]
 splitter = MarkdownHeaderTextSplitter(
@@ -34,6 +36,13 @@ def fetch_page(url):
             f"Expected markdown but got {content_type} from {url}")
 
     return {"url": url, "text": response.text}
+
+
+def fetch_local_page(path):
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+
+    return {"url": f"fixture://{os.path.basename(path)}", "text": text}
 
 
 def fetch_urls(url_list):
@@ -112,6 +121,7 @@ def store_chunks(chunks):
 
 if __name__ == "__main__":
     pages = fetch_urls(URLS)
+    pages.append(fetch_local_page("data/fixtures/stale_soc2_page.md"))
     chunks = chunk_pages(pages)
     print("chunks still containing &amp;:", sum(
         1 for c in chunks if "&amp;" in c["text"] or "&amp;" in c["section"]))
