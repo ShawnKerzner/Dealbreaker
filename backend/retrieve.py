@@ -32,7 +32,7 @@ def search(question, k=5):
 
 if __name__ == "__main__":
     hits = search(
-        "We handle patient data. Can we use PostHog under HIPAA?", k=10)
+        "Are you ISO 27001 certified?", k=10)
     for i, hit in enumerate(hits):
         print(i, round(hit["distance"], 3), hit["section"])
         print("   ", hit["text"][:500].replace("\n", " "))
