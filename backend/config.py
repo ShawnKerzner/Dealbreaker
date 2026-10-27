@@ -3,3 +3,4 @@ CHROMA_PATH = "chroma_db"
 COLLECTION_NAME = "posthog_docs"
 RERANK_MODEL = "BAAI/bge-reranker-base"
 FLAG_THRESHOLD = 0.5
+CLAUDE_MODEL = "claude-sonnet-5-5"
