@@ -1,6 +1,8 @@
 from retrieve import search
-from rerank import rerank
+from rerank import rerank, should_flag
 from test_set import TEST_SET
+from generate import generate_answer
+import json
 
 
 def label_of(hit):
@@ -39,6 +41,9 @@ def report(k, use_rerank):
           f"recall@{k}={sum(recalls)/len(recalls):.2f}")
     print()
 
+
+with open("answers.json", "w", encoding="utf-8") as f:
+    json.dump(records, f, indent=2)
 
 if __name__ == "__main__":
     report(k=5, use_rerank=False)
