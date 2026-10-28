@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dealbreaker</title>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Dealbreaker</h1>
+        <p class="tagline">Grounded answers to prospects' security &amp; compliance questions, with sources.</p>
+        <p class="demo-note">Demo knowledge base built from PostHog's public docs. Not affiliated with PostHog.</p>
+      </header>
+
+      <form id="ask-form">
+        <label for="question">Prospect's question</label>
+        <textarea id="question" rows="3" placeholder="e.g. We're an EU company. Can our data stay in the EU?"></textarea>
+        <button id="ask-button" type="submit">Get answer</button>
+      </form>
+
+      <p id="loading" hidden>Searching the docs and drafting an answer…</p>
+      <p id="error" class="error" hidden></p>
+
+      <section id="result" hidden>
+        <div id="flag" class="flag" hidden>
+          ⚠️ Low confidence: check with your SE or AE before replying.
+        </div>
+        <h2>Draft answer</h2>
+        <div id="answer" class="answer"></div>
+        <p class="score">Confidence score: <span id="score"></span></p>
+        <h2>Sources</h2>
+        <ol id="sources"></ol>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
