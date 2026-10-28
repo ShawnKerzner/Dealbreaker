@@ -42,8 +42,24 @@ def report(k, use_rerank):
     print()
 
 
-with open("answers.json", "w", encoding="utf-8") as f:
-    json.dump(records, f, indent=2)
+def save_answers(path="answers.json"):
+    records = []
+
+    for item in TEST_SET:
+        question = item["question"]
+        ranked = rerank(question, search(question, k=10))
+        record = {
+            "id": item["id"],
+            "answer": item["reference_answer"],
+            "flagged": item["expected"],
+        }
+        records.append(record)
+        # progress, since each Claude call takes a few seconds
+        print(f"Q{item['id']} done")
+
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(records, f, indent=2)
+
 
 if __name__ == "__main__":
     report(k=5, use_rerank=False)
