@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "answer": "The documentation doesn't offer a guarantee, but it does describe EU hosting options.\n\n- PostHog Cloud EU is hosted on servers in Frankfurt [1]. Customers can choose EU hosting (AWS eu-central-1, Germany) or US hosting [3].\n- Data transfers to the US environment rely on EU Standard Contractual Clauses [3]. For Cloud US, PostHog recommends anonymizing EU user data [2].\n- PostHog enters into Data Processing Agreements on request, and the sub-processor list is part of the DPA [3].\n\nThe sources don't cover contractual residency commitments or the locations of sub-processors. Please confirm those with a sales engineer before replying. This is not legal advice.",
+    "flagged": true
+  },
+  {
+    "id": 2,
+    "answer": "Yes. The documentation states that PostHog is certified as SOC 2 Type 2 compliant following an external audit [1][2][4].\n\nYou can view the report in two ways:\n- The latest security report is publicly available and covers controls as of May 31, 2026. The reporting period runs June 1 through May 31 each year [1][2].\n- PostHog's Trust Center, powered by SafeBase, lets you self-serve reports, policies, and certifications [1][4].\n\n**Note for SDR:** An archived page lists the report date as May 31, 2025 [3]. The more recent sources say 2026, which is likely correct. Please verify the current report before sending.",
+    "flagged": false
+  },
+  {
+    "id": 3,
+    "answer": "PostHog's latest publicly available SOC 2 Type 2 report covers controls as of May 31, 2026 [1][3]. The reporting period runs June 1 through May 31 each year [1][3]. PostHog is certified as SOC 2 Type 2 compliant following an external audit [1][4]. Reports and certifications are available through the Trust Center [1][4].\n\n**Note for SDR (don't paste):** An archived page [2] cites a May 31, 2025 coverage date, which conflicts with the sources above. That page is labeled archived and older, so May 31, 2026 is the likely current answer. Please verify on the Trust Center before replying.",
+    "flagged": false
+  },
+  {
+    "id": 4,
+    "answer": "Yes, according to PostHog's documentation. It says PostHog can be used to collect user data under HIPAA [1], and that PostHog Cloud can be used under HIPAA [2].\n\n- A Business Associate Agreement (BAA) may be required. PostHog offers one for PostHog Cloud to customers on the Boost, Scale, or Enterprise package [2][4].\n- A signed BAA doesn't make a setup compliant on its own. It doesn't cover every feature, and compliance depends on how you configure the features you use [2].\n- PostHog's guidance is not legal advice, and you are responsible for ensuring your own compliance [3].\n\nThe sources I have don't list which features the BAA covers. Please confirm that with a sales engineer (SE) before replying.",
+    "flagged": false
+  },
+  {
+    "id": 5,
+    "answer": "It depends on how you use PostHog:\n\n- **PostHog Cloud:** PostHog acts as the data processor, and you are the data controller [1][3].\n- **Self-hosted:** You are both processor and controller because you manage the instance. PostHog has no access to your user data and no specific GDPR obligations to your end users in this case [1][3].\n\nFor Cloud, Article 28 of the GDPR may require a Data Processing Agreement (DPA) between controller and processor, and PostHog documents how to get one signed [2]. Its DPA includes a sub-processor list [4]. GDPR questions can go to privacy@posthog.com [4].",
+    "flagged": false
+  },
+  {
+    "id": 6,
+    "answer": "Yes, PostHog's documentation says user data can be deleted on request. PostHog provides data deletion features, and a user's data can be deleted programmatically or manually [1][2]. PostHog also states that it gives all customers tools to handle end-user requests under CCPA, including deletion [4]. The documentation notes a 45-day window to respond to a CCPA deletion request [3], and that the right to delete has some exceptions [5].\n\nThe sources I have do not cover the technical details of how deletion works, such as exactly what is removed or how long it takes. I recommend confirming those with a sales engineer before replying.",
+    "flagged": false
+  },
+  {
+    "id": 7,
+    "answer": "PostHog's documentation says the policies supporting its SOC 2 compliance are available to view, and on request, through its Trust Center [2][4]. These policies are also relevant for GDPR [2].\n\nThe documentation does not specifically say whether an incident response plan or an encryption policy is among the policies available. I'd suggest pointing the prospect to the Trust Center to check, and requesting those two documents by name. Before confirming that they are available, please check with a sales engineer (SE).",
+    "flagged": true
+  },
+  {
+    "id": 8,
+    "answer": "The documentation provided does not say whether PostHog is ISO 27001 certified. None of the sources mention ISO 27001.\n\nWhat the sources do confirm:\n- PostHog is certified as SOC 2 Type 2 compliant following an external audit [1][3].\n- Reports, policies, and certifications are available for self-serve viewing through PostHog's Trust Center [1][3].\n\nI recommend checking with a sales engineer (SE) before replying on ISO 27001. You could also review the Trust Center, but the sources don't say whether it lists that certification.",
+    "flagged": true
+  }
+]
